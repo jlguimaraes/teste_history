@@ -2,11 +2,8 @@ Arquivo de teste
 
 linha 1 chave :::
 linha 2 chave 456
-linha 3 chave 789
+linha 3 chave ***
 
+linha 5 chave abdcefgh
 
-linha 4 chave 321
-
-linha 5 chave ***********0
-
-linha 6 chave ***********
+linha 6 chave 0987654321
