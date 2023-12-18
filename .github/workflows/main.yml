@@ -1,0 +1,12 @@
+on: [workflow_dispatch]
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Run action
+        uses: ./
+        with:
+          teste: "teste"
+          teste_choice: "teste"
+          teste_bool: "true"
