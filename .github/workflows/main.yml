@@ -25,7 +25,7 @@ on:
         default: true
       name4:
         type: string
-        description: 'Bota tag nessa build ai' ${{ env.date }}
+        description: 'Bota tag nessa build ai ${{ env.date }}'
         required: false
         default: ''
 jobs:
