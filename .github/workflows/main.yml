@@ -25,7 +25,7 @@ on:
         type: string
         description: 'Bota tag nessa build ai'
         required: false
-        default: 'latest'
+        default: ${{(date +'%Y-%m-%d')}}
 jobs:
   buidando:
     runs-on: ubuntu-latest
