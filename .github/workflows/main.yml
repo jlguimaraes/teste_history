@@ -25,7 +25,7 @@ on:
         type: string
         description: 'Bota tag nessa build ai'
         required: false
-        default: ${{github.run_number}}
+        default: 'latest'
 jobs:
   buidando:
     runs-on: ubuntu-latest
@@ -34,6 +34,4 @@ jobs:
       - name: Buildando
         run: echo "Buildando ${{ github.event.inputs.name }} em ${{ github.event.inputs.name2 }}"
       - name: Buildando com input
-        run: read -p "Bota a tag ai " tag
-      - name: Buildando com input 2
-        run: echo "Buildando com tag $tag"
+        run: echo "Buildando com tag ${{ github.event.inputs.name4 }} na run ${{github.run_number}}"
