@@ -2,8 +2,6 @@ name: Bora buildar
 
 on:
   workflow_dispatch:
-    env:
-      date: ${{date +'%Y-%m-%d'}}
     inputs:
       name:
         type: string
