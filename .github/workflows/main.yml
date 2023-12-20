@@ -25,9 +25,9 @@ on:
         default: true
       name4:
         type: string
-        description: 'Bota tag nessa build ai'
+        description: 'Bota tag nessa build ai' ${{ env.date }}
         required: false
-        default: { env: date }
+        default: ''
 jobs:
   buidando:
     runs-on: ubuntu-latest
