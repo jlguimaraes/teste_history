@@ -18,12 +18,13 @@ on:
           - 'Praça'
       name3:
         type: boolean
-        description: 'Vai buildar quando?'
+        description: 'Vai buildar agora?'
         required: true
         default: true
 jobs:
   buidando:
     runs-on: ubuntu-latest
+    if: github.event.inputs.name3 == 'true'
     steps:
       - name: Buildando
         run: echo "Buildando ${{ github.event.inputs.name }} em ${{ github.event.inputs.name2 }}"
