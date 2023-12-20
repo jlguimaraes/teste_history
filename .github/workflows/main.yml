@@ -27,7 +27,7 @@ on:
         type: string
         description: 'Bota tag nessa build ai'
         required: false
-        default: { workflow_dispatch.env.date }
+        default: { env }
 jobs:
   buidando:
     runs-on: ubuntu-latest
