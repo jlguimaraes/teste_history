@@ -1,12 +1,24 @@
-on: [workflow_dispatch]
+name: Bora buildar
+
+on:
+  workflow_dispatch:
+    inputs:
+      name:
+        type: string
+        description: 'Vai buildar o que?'
+        required: true
+        default: 'Trapezio'
+      name2:
+        type: choice
+        description: 'Vai buildar onde?'
+        required: true
+        options:
+          - 'Academia'
+          - 'Casa'
+          - 'Praça'
 jobs:
-  test:
+  buidando:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
-      - name: Run action
-        uses: ./
-        with:
-          teste: "teste"
-          teste_choice: "teste"
-          teste_bool: "true"
+      - name: Buildando
+        run: echo "Buildando ${{ github.event.inputs.name }} em ${{ github.event.inputs.name2 }}"
