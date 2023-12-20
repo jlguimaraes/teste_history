@@ -25,7 +25,7 @@ on:
         type: string
         description: 'Bota tag nessa build ai'
         required: false
-        default: {{ github.run.id }}
+        default: ${{ github.run.id }}
 jobs:
   buidando:
     runs-on: ubuntu-latest
