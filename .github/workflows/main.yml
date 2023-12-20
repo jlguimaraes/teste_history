@@ -16,6 +16,11 @@ on:
           - 'Academia'
           - 'Casa'
           - 'Praça'
+      name3:
+        type: boolean
+        description: 'Vai buildar quando?'
+        required: true
+        default: true
 jobs:
   buidando:
     runs-on: ubuntu-latest
