@@ -2,6 +2,8 @@ name: Bora buildar
 
 on:
   workflow_dispatch:
+    env:
+      date: ${{date +'%Y-%m-%d'}}
     inputs:
       name:
         type: string
@@ -25,7 +27,7 @@ on:
         type: string
         description: 'Bota tag nessa build ai'
         required: false
-        default: $(date +'%Y-%m-%d')
+        default: { env.date }
 jobs:
   buidando:
     runs-on: ubuntu-latest
