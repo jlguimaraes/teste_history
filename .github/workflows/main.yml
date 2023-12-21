@@ -34,6 +34,6 @@ jobs:
       - name: Imprimindo inputs
         run: echo "Buildando ${{ github.event.inputs.name }} em ${{ github.event.inputs.name2 }} com tag ${{ github.event.inputs.name4 }}"
       - name: Faz ls
-        run: ls
+        run: echo $(ls)
       - name: Criando tag
         run: git tag ${{ github.event.inputs.name4 }} && git push --tags -f
