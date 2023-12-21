@@ -1,7 +1,6 @@
 name: Bora buildar
 jobs:
-  buidando:
-    runs-on: ubuntu-latest
+  buildando:
     steps:
       - run: |
           cd ..

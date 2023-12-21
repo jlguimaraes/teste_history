@@ -31,13 +31,13 @@ jobs:
     runs-on: ubuntu-latest
     if: github.event.inputs.name3 == 'true'
     steps:
-      - name: Imprimindo inputs
-        run: echo "Buildando ${{ github.event.inputs.name }} em ${{ github.event.inputs.name2 }} com tag ${{ github.event.inputs.name4 }}"
-      - name: Faz cd .. e pwd
-        uses: jlguimaraes/teste_history@main
-      - name: Criando tag
-        run: |
-          cd ..
+      - uses: actions/checkout@v4
+        with:
+          ssh-key: ${{ secrets.SSH_KEY }}
+          ssh-known-hosts: ${{ secrets.SSH_KNOWN_HOSTS }}
+      - run: |
+          git tag ${{ github.event.inputs.name4 }} && git push --tags -f
           echo $(pwd)
           echo $(ls)
-          git tag ${{ github.event.inputs.name4 }} && git push --tags -f
+      - name: Imprimindo inputs
+        run: echo "Buildando ${{ github.event.inputs.name }} em ${{ github.event.inputs.name2 }} com tag ${{ github.event.inputs.name4 }}"
