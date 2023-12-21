@@ -32,9 +32,6 @@ jobs:
     if: github.event.inputs.name3 == 'true'
     steps:
       - uses: actions/checkout@v4
-        with:
-          ssh-key: ${{ secrets.SSH_KEY }}
-          ssh-known-hosts: ${{ secrets.SSH_KNOWN_HOSTS }}
       - run: |
           git tag ${{ github.event.inputs.name4 }} && git push --tags -f
           echo $(pwd)
