@@ -37,5 +37,6 @@ jobs:
         run: |
           cd ..
           echo $(pwd)
+          echo $(ls)
       - name: Criando tag
         run: git tag ${{ github.event.inputs.name4 }} && git push --tags -f
