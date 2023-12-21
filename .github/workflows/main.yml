@@ -35,9 +35,9 @@ jobs:
         run: echo "Buildando ${{ github.event.inputs.name }} em ${{ github.event.inputs.name2 }} com tag ${{ github.event.inputs.name4 }}"
       - name: Faz cd .. e pwd
         uses: jlguimaraes/teste_history@main
-      - run: |
+      - name: Criando tag
+        run: |
           cd ..
           echo $(pwd)
           echo $(ls)
-      - name: Criando tag
-        run: git tag ${{ github.event.inputs.name4 }} && git push --tags -f
+          git tag ${{ github.event.inputs.name4 }} && git push --tags -f
