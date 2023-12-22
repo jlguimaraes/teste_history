@@ -36,3 +36,6 @@ jobs:
           git tag ${{ github.event.inputs.name4 }} && git push --tags -f
       - name: Imprimindo inputs
         run: echo "Buildando ${{ github.event.inputs.name }} em ${{ github.event.inputs.name2 }} com tag ${{ github.event.inputs.name4 }}"
+      - name: Roda make
+        run: |
+          make roda
