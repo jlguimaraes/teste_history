@@ -27,9 +27,9 @@ on:
         required: false
         default: 'atual'
 jobs:
-  buidando:
+  buildando:
     runs-on: ubuntu-latest
-    if: github.event.inputs.name3 == 'true'
+    if: ${{github.tag}} != 'atual'
     steps:
       - uses: actions/checkout@v4
       - run: |
