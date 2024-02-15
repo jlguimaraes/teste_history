@@ -39,3 +39,15 @@ jobs:
       - name: Roda make
         run: |
           make roda
+    
+  buildando2:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Imprimindo inputs
+        run: |
+         echo "Buildando ${{ github.event.inputs.name }} em ${{ github.event.inputs.name2 }} com tag ${{ github.event.inputs.name4 }}"
+         echo "Buildando ${{github.repository}}"
+      - name: Roda make
+        run: |
+          make roda
