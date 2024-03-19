@@ -1,0 +1,53 @@
+name: Bora buildar3
+
+on:
+  workflow_dispatch:
+    inputs:
+      name:
+        type: string
+        description: 'Vai buildar o que?'
+        required: true
+        default: 'Trapezio'
+      name2:
+        type: choice
+        description: 'Vai buildar onde?'
+        required: true
+        options:
+          - 'Academia'
+          - 'Casa'
+          - 'Praça'
+      name3:
+        type: boolean
+        description: 'Vai buildar agora?'
+        required: true
+        default: true
+      name4:
+        type: string
+        description: 'Bota tag nessa build ai'
+        required: false
+        default: 'atual'
+jobs:
+  buildando:
+    runs-on: ubuntu-latest
+    if: ${{github.tag}} != 'atual'
+    steps:
+      - uses: actions/checkout@v4
+      - run: |
+          git tag ${{ github.event.inputs.name4 }} && git push --tags -f
+      - name: Imprimindo inputs
+        run: echo "Buildando ${{ github.event.inputs.name }} em ${{ github.event.inputs.name2 }} com tag ${{ github.event.inputs.name4 }}"
+      - name: Roda make
+        run: |
+          make roda
+    
+  buildando2:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Imprimindo inputs
+        run: |
+         echo "Buildando ${{ github.event.inputs.name }} em ${{ github.event.inputs.name2 }} com tag ${{ github.event.inputs.name4 }}"
+         echo "Buildando ${{github.repository}}"
+      - name: Roda make
+        run: |
+          make roda
